@@ -4,7 +4,8 @@
 """
 from werkzeug.exceptions import HTTPException
 
-from app.libs.error import APIException
+from app.exceptions.base import APIException
+from app.exceptions.error_res import ServerError
 
 
 def error_handle(e, app):
@@ -14,10 +15,7 @@ def error_handle(e, app):
     if isinstance(e, APIException):
         return e
     if isinstance(e, HTTPException):
-        code = e.code
-        msg = e.description
-        error_code = 1007
-        return APIException(code, msg, error_code)
+        return APIException(code=e.code, msg=e.description, error_code=1007)
     else:
         # TODO log
         if not app.config.get('DEBUG'):

@@ -7,7 +7,7 @@ from datetime import date
 from flask.json import JSONEncoder as _JSONEncoder
 from flask import Flask as _Flask
 
-from app.libs.error import ServerError
+from app.exceptions.error_res import ServerError
 
 
 class JSONEncoder(_JSONEncoder):

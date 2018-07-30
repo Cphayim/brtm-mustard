@@ -4,7 +4,7 @@
   Created by Cphayim at 2018/7/27 23:35
 """
 from app import create_app
-from app.libs.error_handle import error_handle
+from app.exceptions.error_handle import error_handle
 
 app = create_app()
 
